@@ -4,6 +4,9 @@ package com.teckarch.TafBookingService.Service;
 import com.teckarch.TafBookingService.DTO.BookingsDTO;
 import com.teckarch.TafBookingService.Service.Interfaces.BookingService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -51,6 +54,8 @@ public class BookingServiceImpl implements BookingService {
         String bookingUrl = datastoreServiceUrl + "/bookings/" + bookingId;
         return restTemplate.getForObject(bookingUrl, BookingsDTO.class);
     }
+
+
 
     @Override
     public BookingsDTO updateBooking(Long bookingId, BookingsDTO updatedBooking) {
